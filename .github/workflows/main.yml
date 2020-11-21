@@ -1,0 +1,20 @@
+name: OMF Integration Tests
+
+on: push
+        
+jobs:
+  macOS:
+    name: Test on macOS
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        continue-on-error: true
+        run: |
+          brew install python@3.8
+          # python3 install.py
+          pip3 install -r requirements.txt
+      - name: Run tests
+        continue-on-error: true
+        run: |
+          python3 test.py

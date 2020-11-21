@@ -12,6 +12,8 @@ jobs:
         continue-on-error: true
         run: |
           brew install python@3.8
+          which python3
+          which python
           # python3 install.py
           pip3 install -r requirements.txt
       - name: Run tests

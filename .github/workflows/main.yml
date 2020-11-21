@@ -13,6 +13,7 @@ jobs:
         run: |
           brew install python@3.8
           which python3
+          python3 --version
           which python
           # python3 install.py
           pip3 install -r requirements.txt

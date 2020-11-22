@@ -11,10 +11,11 @@ jobs:
       - name: Install dependencies
         run: |
           brew link python@3.8
-          which python3
-          python3 --version
-          which python
+          # which python3
+          # python3 --version
+          # which python
           # python3 install.py
+          brew install graphviz
           pip3 install -r requirements.txt
       - name: Run tests
         run: |
@@ -22,18 +23,20 @@ jobs:
   Windows:
     name: Test on Windows
     runs-on: windows-latest
+    env:
+            GLPATH: "C:\Program Files\GridLAB-D\bin;C:\Program Files\GridLAB-D\etc;C:\Program Files\GridLAB-D\lib;C:\Program Files\GridLAB-D\samples;C:\Program Files\GridLAB-D\rt;C:\Program Files\GridLAB-D\tmy"
+            GRIDLABD: "C:\Program Files\GridLAB-D"
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
         continue-on-error: true
         run: |
           choco install python --no-progress --version 3.6.8
+          choco install graphviz
           # python install.py
           which python
           pip install -r requirements.txt
       - name: Run tests
         run: |
-          echo "GLPATH=C:\Program Files\GridLAB-D\bin;C:\Program Files\GridLAB-D\etc;C:\Program Files\GridLAB-D\lib;C:\Program Files\GridLAB-D\samples;C:\Program Files\GridLAB-D\rt;C:\Program Files\GridLAB-D\tmy" >> $GITHUB_ENV
-          echo "GRIDLABD=C:\Program Files\GridLAB-D" >>$GITHUB_ENV
           echo "/c/Program files (x86)/Graphviz2.38/bin;/c/Program Files/GridLAB-D/bin:/c/Program Files/GridLAB-D/lib:/c/Program files (x86)/Graphviz2.38/bin:$PATH" >> $GITHUB_PATH
           python test.py

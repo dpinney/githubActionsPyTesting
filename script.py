@@ -5,7 +5,7 @@ print('TEST SCRIPT RUN')
 def safe_call(cmdString):
 	try:
 		output = subprocess.check_output(
-			cmdString, stderr=subprocess.STDOUT, shell=True,
+			cmdString, stderr=subprocess.STDOUT, shell=False,
 			universal_newlines=True)
 	except subprocess.CalledProcessError as exc:
 		print(str(cmdString) + " Status : FAIL", exc.returncode, exc.output)

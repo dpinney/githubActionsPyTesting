@@ -25,11 +25,11 @@ Turns out, running inside command with refreshenv first works. Now, how to do th
 if platform.system()=="Windows":
 	print('WINDOWS DETECTED')
 	# safe_call('cmd.exe //c RefreshEnv.cmd') #hangs travis
-	# print('PATH', os.getenv('PATH'))
-	# print('GLPATH', os.getenv('GLPATH'))
-	# print(os.listdir('C:\\Program Files\\GridLAB-D\\bin'))
-	# print(os.listdir('C:\\Program Files\\GridLAB-D\\lib'))
-	# print(os.listdir('C:\\windows\\system32'))
+	print('PATH', os.getenv('PATH'))
+	print('GLPATH', os.getenv('GLPATH'))
+	print(os.listdir('C:\\Program Files\\GridLAB-D\\bin'))
+	print(os.listdir('C:\\Program Files\\GridLAB-D\\lib'))
+	print(os.listdir('C:\\windows\\system32'))
 	# safe_call(['env'])
 	safe_call(['gridlabd', '-h'])
 	# safe_call('cmd /c "refreshenv && gridlabd -h"')

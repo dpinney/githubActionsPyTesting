@@ -29,7 +29,7 @@ if platform.system()=="Windows":
 	print('GLPATH', os.getenv('GLPATH'))
 	print(os.listdir('C:\\Program Files\\GridLAB-D\\bin'))
 	print(os.listdir('C:\\Program Files\\GridLAB-D\\lib'))
-	print(os.listdir('C:\\windows\\system32'))
+	# print(os.listdir('C:\\windows\\system32'))
 	safe_call(['C:\\Program Files\\GridLAB-D\\bin\\gridlabd', '-h'])
 	# safe_call(['env'])
 	safe_call(['gridlabd', '-h'])

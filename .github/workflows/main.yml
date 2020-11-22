@@ -9,7 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        continue-on-error: true
         run: |
           brew link python@3.8
           which python3
@@ -18,7 +17,6 @@ jobs:
           # python3 install.py
           pip3 install -r requirements.txt
       - name: Run tests
-        continue-on-error: true
         run: |
           python3 test.py
   Windows:
@@ -27,13 +25,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        continue-on-error: true
+        # continue-on-error: true
         run: |
           choco install python --no-progress --version 3.6.8
           # python install.py
           which python
           pip install -r requirements.txt
       - name: Run tests
-        continue-on-error: true
+        
         run: |
           python test.py

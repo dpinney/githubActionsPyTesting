@@ -16,7 +16,7 @@ jobs:
           # which python
           # python3 install.py
           brew install graphviz
-          pip3 install -r requirements.txt
+          # pip3 install -r requirements.txt
       - name: Run tests
         run: |
           python3 test.py
@@ -33,9 +33,11 @@ jobs:
         run: |
           choco install python --no-progress --version 3.6.8
           choco install graphviz
-          # python install.py
           which python
-          pip install -r requirements.txt
+          # python install.py
+          pip install wheel
+          pip install pygraphviz
+          # pip install -r requirements.txt
       - name: Run tests
         run: |
           set PATH=C:\Program files (x86)\Graphviz2.38\bin;C:\Program Files\GridLAB-D\bin;C:\Program Files\GridLAB-D\lib;C:\Program files (x86)\Graphviz2.38\bin;$PATH;%PATH%

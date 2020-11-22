@@ -24,8 +24,8 @@ jobs:
     name: Test on Windows
     runs-on: windows-latest
     env:
-            GLPATH: "C:\Program Files\GridLAB-D\bin;C:\Program Files\GridLAB-D\etc;C:\Program Files\GridLAB-D\lib;C:\Program Files\GridLAB-D\samples;C:\Program Files\GridLAB-D\rt;C:\Program Files\GridLAB-D\tmy"
-            GRIDLABD: "C:\Program Files\GridLAB-D"
+            GLPATH: "C:\\Program Files\\GridLAB-D\\bin;C:\\Program Files\\GridLAB-D\\etc;C:\\Program Files\\GridLAB-D\\lib;C:\\Program Files\\GridLAB-D\\samples;C:\\Program Files\\GridLAB-D\\rt;C:\\Program Files\\GridLAB-D\\tmy"
+            GRIDLABD: "C:\\Program Files\\GridLAB-D"
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies

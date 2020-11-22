@@ -5,7 +5,7 @@ print('TEST SCRIPT RUN')
 def safe_call(cmdString):
 	try:
 		output = subprocess.check_output(
-			cmdString, stderr=subprocess.STDOUT, shell=False,
+			cmdString, stderr=subprocess.STDOUT, shell=True,
 			universal_newlines=True)
 	except subprocess.CalledProcessError as exc:
 		print(str(cmdString) + " Status : FAIL", exc.returncode, exc.output)
@@ -31,7 +31,7 @@ if platform.system()=="Windows":
 	print(os.listdir('C:\\Program Files\\GridLAB-D\\lib'))
 	# print(os.listdir('C:\\windows\\system32'))
 	safe_call(['C:\\Program Files\\GridLAB-D\\bin\\gridlabd', '-h'])
-	safe_call(['/c/Program Files/GridLAB-D/bin/gridlabd', '-h'])
+	# safe_call(['/c/Program Files/GridLAB-D/bin/gridlabd', '-h'])
 	# safe_call(['env'])
 	safe_call(['gridlabd', '-h'])
 	# safe_call('cmd /c "refreshenv && gridlabd -h"')

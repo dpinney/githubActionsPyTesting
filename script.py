@@ -30,6 +30,7 @@ if platform.system()=="Windows":
 	print(os.listdir('C:\\Program Files\\GridLAB-D\\bin'))
 	print(os.listdir('C:\\Program Files\\GridLAB-D\\lib'))
 	print(os.listdir('C:\\windows\\system32'))
+	safe_call(['C:\\Program Files\\GridLAB-D\\bin\\gridlabd', '-h'])
 	# safe_call(['env'])
 	safe_call(['gridlabd', '-h'])
 	# safe_call('cmd /c "refreshenv && gridlabd -h"')

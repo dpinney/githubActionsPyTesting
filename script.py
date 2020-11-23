@@ -42,5 +42,6 @@ if platform.system()=="Windows":
 	safe_call(['neato', '-V'])
 	print(os.listdir('C:\\Program Files\\'))
 	print(os.listdir('C:\\Program Files (x86)\\'))
-	print(os.listdir('C:\\Program Files\\Graphviz 2.44.1\\bin'))
+	print(os.listdir('C:\\Program Files\\Graphviz2.38'))
+	print(os.listdir('C:\\Program Files\\Graphviz2.38\\bin'))
 	safe_call(['neato', '-V'])

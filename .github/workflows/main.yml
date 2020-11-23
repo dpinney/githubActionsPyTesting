@@ -32,13 +32,13 @@ jobs:
           # https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-environment-variable
           echo "GLPATH=C:\\Program Files\\GridLAB-D\\bin;C:\\Program Files\\GridLAB-D\\etc;C:\\Program Files\\GridLAB-D\\lib;C:\\Program Files\\GridLAB-D\\samples;C:\\Program Files\\GridLAB-D\\rt;C:\\Program Files\\GridLAB-D\\tmy" >> $GITHUB_ENV
           echo "GRIDLABD=C:\\Program Files\\GridLAB-D" >> $GITHUB_ENV
-          echo "C:\\Program Files\\GridLAB-D\\bin;C:\\Program Files\\GridLAB-D\\lib;C:\\Program Files\\Graphviz 2.44.1\\bin" >> $GITHUB_PATH
+          echo "C:\\Program Files\\GridLAB-D\\bin;C:\\Program Files\\GridLAB-D\\lib;C:\\Program Files (x86)\\Graphviz2.38\\bin" >> $GITHUB_PATH
       - name: Install dependencies
         continue-on-error: true
         shell: bash
         run: |
           choco install python --no-progress --version 3.6.8
-          choco install graphviz --no-progress --version 2.44.1
+          choco install graphviz.portable --version 2.38
           python --version
           # python install.py
           # pip install wheel

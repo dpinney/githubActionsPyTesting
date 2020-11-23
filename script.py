@@ -39,3 +39,4 @@ if platform.system()=="Windows":
 	safe_call(['gridlabd', 'smsSingle.glm'])
 	# safe_call('cmd /c "refreshenv && gridlabd smsSingle.glm"')
 	# safe_call('cmd /c "refreshenv && SET"')
+	safe_call(['neato', '-V'])

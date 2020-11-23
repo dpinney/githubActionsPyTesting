@@ -22,7 +22,7 @@ if platform.system()=="Windows":
 	os.system("python -m pip install pygraphviz-1.5-cp37-cp37m-win_amd64.whl")
 	os.system("wget -nv --no-check-certificate https://sourceforge.net/projects/gridlab-d/files/gridlab-d/Candidate%20release/gridlabd-4.0_RC1.exe")
 	os.system("gridlabd-4.0_RC1.exe/silent")
-	os.system('neato -h')
+	# os.system('neato -h')
 	# time.sleep(10)
 	# os.system("choco install -y gnuplot")
 	# os.system("gridlabd-4.0_RC1.exe /silent")

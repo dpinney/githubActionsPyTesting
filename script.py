@@ -25,7 +25,7 @@ Turns out, running inside command with refreshenv first works. Now, how to do th
 if platform.system()=="Windows":
 	print('WINDOWS DETECTED')
 	# safe_call('cmd.exe //c RefreshEnv.cmd') #hangs travis
-	# print('PATH', os.getenv('PATH'))
+	print('PATH', os.getenv('PATH'))
 	# print('GLPATH', os.getenv('GLPATH'))
 	# print(os.listdir('C:\\Program Files\\GridLAB-D\\bin'))
 	# print(os.listdir('C:\\Program Files\\GridLAB-D\\lib'))
@@ -39,4 +39,6 @@ if platform.system()=="Windows":
 	safe_call(['gridlabd', 'smsSingle.glm'])
 	# safe_call('cmd /c "refreshenv && gridlabd smsSingle.glm"')
 	# safe_call('cmd /c "refreshenv && SET"')
+	safe_call(['neato', '-V'])
+	os.symlink('C:\\Program Files (x86)\\Graphviz2.38\\bin\\neato.exe', 'C:\\windows\\neato.exe')
 	safe_call(['neato', '-V'])

@@ -38,7 +38,7 @@ jobs:
         shell: bash
         run: |
           choco install python --no-progress --version 3.6.8
-          choco install --no-progress graphviz
+          choco install --no-progress graphviz --version 2.38
           python --version
           # python install.py
           # pip install wheel

@@ -40,5 +40,5 @@ if platform.system()=="Windows":
 	# safe_call('cmd /c "refreshenv && gridlabd smsSingle.glm"')
 	# safe_call('cmd /c "refreshenv && SET"')
 	safe_call(['neato', '-V'])
-	os.symlink('C:\\Program Files (x86)\\Graphviz2.38\\bin\\neato.exe', 'C:\\windows\\neato.exe')
+	os.symlink('C:\\Program Files (x86)\\Graphviz2.38\\bin\\neato.exe', 'C:\\ProgramData\\Chocolatey\\bin\\neato.exe')
 	safe_call(['neato', '-V'])

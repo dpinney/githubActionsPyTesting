@@ -17,6 +17,7 @@ jobs:
           # python3 install.py
           # brew install graphviz
           # pip3 install -r requirements.txt
+          pip install ecos
       - name: Run tests
         run: |
           python3 test.py

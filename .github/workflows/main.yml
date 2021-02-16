@@ -3,55 +3,67 @@ name: OMF Integration Tests
 on: push
 
 jobs:
-  macOS:
-    name: Test on macOS
-    runs-on: macos-latest
+  Ubuntu:
+    name: Test OMF on Ubuntu
+    runs-on: ubuntu-18.04
+    timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
+      - uses: actions/checkout@v2 # Checkout whichever ref that triggered this workflow
+      - name: Install Dependencies
         run: |
-          brew link --overwrite python@3.8
-          # which python3
-          # python3 --version
-          # which python
-          # python3 install.py
-          # brew install graphviz
-          # pip3 install -r requirements.txt
-          pip3 install ecos
-      - name: Run tests
-        run: |
-          python3 test.py
-  Windows:
-    name: Test on Windows
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Fix Pathing
-        continue-on-error: true
-        shell: bash
-        run: |
-          # https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-environment-variable
-          echo "GLPATH=C:\\Program Files\\GridLAB-D\\bin;C:\\Program Files\\GridLAB-D\\etc;C:\\Program Files\\GridLAB-D\\lib;C:\\Program Files\\GridLAB-D\\samples;C:\\Program Files\\GridLAB-D\\rt;C:\\Program Files\\GridLAB-D\\tmy" >> $GITHUB_ENV
-          echo "GRIDLABD=C:\\Program Files\\GridLAB-D" >> $GITHUB_ENV
-          echo "C:\\Program Files\\GridLAB-D\\bin;C:\\Program Files\\GridLAB-D\\lib;C:\\Program Files (x86)\\Graphviz2.38\\bin" >> $GITHUB_PATH
-      - name: Install dependencies
-        continue-on-error: true
-        shell: bash
-        run: |
-          choco install python --no-progress --version 3.6.8
-          choco install graphviz --no-progress --version=2.38.0.20171119
-          python --version
-          # python install.py
-          # pip install wheel
-          # pip install pygraphviz
-          # pip install -r requirements.txt
-          python install.py
-      - name: Run tests
-        run: |
-          # python test.py
-          python script.py
-      - name: Start SSH session
-        uses: luchihoratiu/debug-via-ssh@main
-        with:
-          NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
-          SSH_PASS: ${{ secrets.SSH_PASS }}
+          sudo apt install python3 python3-pygraphviz
+      - name: Run Tests
+        run: sudo python3 -c "import pygraphviz"
+#  macOS:
+#    name: Test on macOS
+#    runs-on: macos-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Install dependencies
+#        run: |
+#          brew link --overwrite python@3.8
+#          # which python3
+#          # python3 --version
+#          # which python
+#          # python3 install.py
+#          # brew install graphviz
+#          # pip3 install -r requirements.txt
+#          pip3 install ecos
+#      - name: Run tests
+#        run: |
+#          python3 test.py
+#  Windows:
+#    name: Test on Windows
+#    runs-on: windows-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Fix Pathing
+#        continue-on-error: true
+#        shell: bash
+#        run: |
+#          # https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-environment-variable
+#          echo "GLPATH=C:\\Program Files\\GridLAB-D\\bin;C:\\Program Files\\GridLAB-D\\etc;C:\\Program Files\\GridLAB-D\\lib;C:\\Program Files\\GridLAB-D\\samples;C:\\Program Files\\GridLAB-D\\rt;C:\\Program Files\\GridLAB-D\\tmy" >> $GITHUB_ENV
+#          echo "GRIDLABD=C:\\Program Files\\GridLAB-D" >> $GITHUB_ENV
+#          echo "C:\\Program Files\\GridLAB-D\\bin;C:\\Program Files\\GridLAB-D\\lib;C:\\Program Files (x86)\\Graphviz2.38\\bin" >> $GITHUB_PATH
+#      - name: Install dependencies
+#        continue-on-error: true
+#        shell: bash
+#        run: |
+#          choco install python --no-progress --version 3.6.8
+#          choco install graphviz --no-progress --version=2.38.0.20171119
+#          python --version
+#          # python install.py
+#          # pip install wheel
+#          # pip install pygraphviz
+#          # pip install -r requirements.txt
+#          python install.py
+#      - name: Run tests
+#        run: |
+#          # python test.py
+#          python script.py
+#      - name: Start SSH session
+#        uses: luchihoratiu/debug-via-ssh@main
+#        with:
+#          NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+#          SSH_PASS: ${{ secrets.SSH_PASS }}
+#

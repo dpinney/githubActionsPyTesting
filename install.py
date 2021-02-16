@@ -12,7 +12,7 @@ def pipInstallInOrder(pipCommandString):
 	os.system("rm \\=*")
 
 if platform.system() == "Linux" and platform.linux_distribution()[0] in ["Ubuntu"]:
-	os.system("sudo apt-get -y update && sudo apt-get -y upgrade") # Make sure apt-get is updated to prevent any weird package installation issues
+	os.system("sudo apt-get -y update")# && sudo apt-get -y upgrade") # Make sure apt-get is updated to prevent any weird package installation issues
 	os.system("sudo apt-get -y install language-pack-en") # Install English locale 
 	# os.system("sudo apt-get dist-upgrade")
 	# os.system("sudo apt --fix-broken install")

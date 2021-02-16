@@ -13,7 +13,7 @@ jobs:
         run: |
           sudo apt install python3 python3-pygraphviz
       - name: Run Tests
-        run: sudo python3 -c "import pygraphviz"
+        run: sudo python3 -c "import pygraphviz as pgv; print(pgv.__version__)"
 #  macOS:
 #    name: Test on macOS
 #    runs-on: macos-latest

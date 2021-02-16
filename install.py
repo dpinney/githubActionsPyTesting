@@ -26,8 +26,8 @@ if platform.system() == "Linux" and platform.linux_distribution()[0] in ["Ubuntu
 	os.system("sudo apt-get install -f")
 	os.system(f'octave-cli --no-gui -p "{source_dir}/omf/solvers/matpower7.0" --eval "install_matpower(1,1,1)"')
 	os.system("cd omf")
-	os.system("pip3 install --upgrade pip setuptools")
-	pipInstallInOrder("pip3")
+	os.system("sudo -H pip3 install --upgrade pip setuptools")
+	pipInstallInOrder("sudo -H pip3")
 	os.system("sudo ACCEPT_EULA=Y apt-get -yq install mssql-tools msodbcsql mdbtools") # workaround for the package EULA, which otherwise breaks upgrade!!
 	#os.system("python3 setup.py develop")
 # TODO: Double check CentOS installation to support Python 3.7 or up

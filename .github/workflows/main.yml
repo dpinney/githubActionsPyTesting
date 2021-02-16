@@ -11,8 +11,9 @@ jobs:
       - uses: actions/checkout@v2 # Checkout whichever ref that triggered this workflow
       - name: Install Dependencies
         run: |
-          sudo apt install python3 #python3-pygraphviz
+          sudo apt install python3
           sudo python3 install.py
+          sudo apt --fix-broken install
       - name: Run Tests
         run: sudo python3 -c "import pygraphviz as pgv; print(pgv.__version__)"
 #  macOS:

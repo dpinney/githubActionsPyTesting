@@ -1,6 +1,4 @@
 # import tensorflow
-import os
+import pygraphviz as pgv
 
-print('test complete')
-print(os.environ['PATH'])
-print(os.environ)
+print(pgv.__version__)

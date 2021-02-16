@@ -19,7 +19,8 @@ if platform.system() == "Linux" and platform.linux_distribution()[0] in ["Ubuntu
 	# os.system("sudo dpkg --configure -a")
 	os.system("sudo apt-get -y install git python3-pip python3-dev python3-numpy graphviz \
 		unixodbc-dev libfreetype6-dev pkg-config alien libgraphviz-dev python3-pydot python3-tk octave libblas-dev liblapack-dev \
-		libatlas-base-dev gfortran wget splat") #python3-pygraphviz DEBIAN_FRONTEND=noninteractive
+		libatlas-base-dev gfortran wget splat")  DEBIAN_FRONTEND=noninteractive
+	os.system("sudo apt-get -y install python3-pygraphviz")
 	os.system("sudo apt-get -y install ffmpeg python3-cairocffi") # Separate to better support debian.
 	os.system("wget https://sourceforge.net/projects/gridlab-d/files/gridlab-d/Candidate%20release/gridlabd-4.0.0-1.el6.x86_64.rpm")
 	os.system("sudo alien -i gridlabd-4.0.0-1.el6.x86_64.rpm")
